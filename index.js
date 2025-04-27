@@ -46,8 +46,8 @@ const { FetchEducationContact } = require("./EDUCATION API/FetchContact");
 const { FetchEducationInquiry } = require("./EDUCATION API/FetchInquiry");
 const { FetchDashboardCounts } = require("./EDUCATION API/FetchCounts");
 
-const express = require('express');
-const cors = require('cors');
+
+
 const app = express();
 
 app.use(express.json());
