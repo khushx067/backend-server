@@ -46,11 +46,13 @@ const { FetchEducationContact } = require("./EDUCATION API/FetchContact");
 const { FetchEducationInquiry } = require("./EDUCATION API/FetchInquiry");
 const { FetchDashboardCounts } = require("./EDUCATION API/FetchCounts");
 
+const express = require('express');
+const cors = require('cors');
 const app = express();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const port = 8100;
 app.use(cors());
 
 app.use(
@@ -65,6 +67,8 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
   })
 );
+
+const port = process.env.PORT || 8100;
 
 // Fetch Api
 app.post("/admin/login", EducationAdminLogin);
@@ -100,5 +104,5 @@ app.post("/deleteTeacher", DeleteTeacher);
 app.post("/deletePackage", DeletePackage);
 
 app.listen(port, () => {
-  console.log("Server started on port", port);
+  console.log(`Server started on port ${port}`);
 });
